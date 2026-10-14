@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D / AR model viewer</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0f1419; color: #e8eef4; font-family: system-ui, sans-serif; }
+    header { padding: 0.75rem 1rem; font-size: 0.95rem; }
+    model-viewer {
+      width: 100%;
+      height: calc(100% - 3rem);
+      background: #1a222c;
+      --poster-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header>Orbit on desktop · tap AR on phone (iOS Quick Look / Android Scene Viewer)</header>
+  <model-viewer
+    src="models/sample.glb"
+    alt="Scanned animal model"
+    camera-controls
+    touch-action="pan-y"
+    auto-rotate
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    shadow-intensity="1"
+    exposure="1"
+  >
+    <button slot="ar-button" style="position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);padding:0.6rem 1.2rem;border:0;border-radius:999px;background:#3d8bfd;color:#fff;font:inherit;cursor:pointer;">
+      View in AR
+    </button>
+  </model-viewer>
+</body>
+</html>
